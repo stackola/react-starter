@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "compile": "./node_modules/.bin/webpack -d -w"
-
+    "compile": "./node_modules/.bin/webpack -d -w",
+    "prod": "./node_modules/.bin/webpack -p"
   },
   "author": "",
   "license": "ISC",
