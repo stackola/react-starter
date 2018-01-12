@@ -8,3 +8,16 @@ export const user = createReducer({username:"Willi"}, { //Define the default val
 }
 ```
 
+
+
+In index.js we combine the seperate reducers to one big redux store.
+
+In this case, our store looks like:
+
+```
+{
+	user:{
+		username:"Willi"
+	}
+}
+```
