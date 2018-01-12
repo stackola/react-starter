@@ -8,4 +8,4 @@ Actiontypes ('Blueprints') have to be defined in types.js
 
 We then make them available as simple functions, that return the appropriate redux action. (Check user.js)
 
-Instead of having to write dispatch({type:'SET_USERNAME', payload:'Willi'}), we can just call setUsername('Willi').
+Instead of having to write `dispatch({type:'SET_USERNAME', payload:'Willi'})`, we can just call `setUsername('Willi')`.
