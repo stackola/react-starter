@@ -4,6 +4,9 @@ import {ActionCreators} from '../actions';
 import { bindActionCreators } from 'redux';
 
 
+import InputField from '../components/inputField.js';
+
+
 class AppContainer extends Component<{}> {
 	constructor(props){
 		super(props)
@@ -23,13 +26,18 @@ class AppContainer extends Component<{}> {
 		//Alternatively, you can use 
 		//this.props.setUserObject({username:input});
 		//check actions/user.js
+		
+		//Clear input field
+		this.setState({...this.state, input:''});
 	}
 	render(){
 		//We can access the redux store via our props. The available variables are defined in mapStateToProps() in this file
 		return (<div>
 			{this.props.user.username}
 			<br/>
-			<input type="text" value={this.state.input} onChange={(e)=>{this.changeInput(e.target.value)}}/>
+			Current local state.input: {this.state.input}
+			<br/>
+			<InputField value={this.state.input} onChange={(e)=>{this.changeInput(e.target.value)}}/>
 			<br/>
 			<button onClick={()=>{this.setUsername()}}>Set Username</button>
 			</div>);
