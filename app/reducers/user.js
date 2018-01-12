@@ -6,7 +6,7 @@ import {
 } from 'redux';
 
 //Define name and default value
-export const user = createReducer({username:"Willi"}, {
+export const user = createReducer({username:"Peter"}, {
 	[types.SET_USER_OBJECT](state, action) {
 		return action.payload;
 	},

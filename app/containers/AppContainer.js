@@ -33,7 +33,7 @@ class AppContainer extends Component<{}> {
 	render(){
 		//We can access the redux store via our props. The available variables are defined in mapStateToProps() in this file
 		return (<div>
-			{this.props.user.username}
+			Current Redux Store Username: {this.props.user.username}
 			<br/>
 			Current local state.input: {this.state.input}
 			<br/>
