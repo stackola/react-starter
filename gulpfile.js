@@ -6,14 +6,14 @@ var reload      = browserSync.reload;
  
  var path = require('path');
 
-var BUILD_DIR = path.resolve(__dirname, './bundle/');
+var BUILD_DIR = path.resolve(__dirname, './public/bundle/');
 var APP_DIR = path.resolve(__dirname, './');
 
 /* Task to compile less */
 gulp.task('compile-less', function() {  
   gulp.src('./less/main.less')
     .pipe(less())
-    .pipe(gulp.dest('./css/'));
+    .pipe(gulp.dest('./public/css/'));
 }); 
 /* Task to watch less changes */
 gulp.task('watch-less', function() {  
@@ -38,20 +38,20 @@ gulp.task('webpack', function() {
     ]
   }
   }))
-  .pipe(gulp.dest('bundle/'));
+  .pipe(gulp.dest('public/bundle/'));
 });
 gulp.task('serve', function () {
  
     // Serve files from the root of this project
     browserSync.init({
         server: {
-            baseDir: "./"
+            baseDir: "./public/"
         }
     }); 
     gulp.watch("./less/*.less").on("change", reload);
-    gulp.watch("./*.html").on("change", reload);
-    gulp.watch("./bundle/*.js").on("change", reload);
+    gulp.watch("./public/*.html").on("change", reload);
+    gulp.watch("./public/bundle/*.js").on("change", reload);
 });
  
 /* Task when running `gulp` from terminal */
-gulp.task('default', ['webpack', 'watch-less', 'serve']);
+gulp.task('default', ['webpack', 'compile-less', 'watch-less', 'serve']);
