@@ -1,3 +1,90 @@
 body{
-	background:#555;
+	background:#ddd;
+	padding: 0;
+	margin: 0;
+}
+
+#mainContainer{
+	padding-top: 100px;
+	max-width: 700px;
+	margin: 0 auto;
+
+}
+
+.matchResult{
+	background: #2970B6;
+	padding: 20px;
+	margin-bottom: 20px;
+	
+	.name{
+		.pullRight{
+			float:right;
+			display: inline-block;
+			font-weight: normal;
+		}
+
+		color:white;
+				font-weight: bold;
+	}
+	.matches{
+		margin-top: 10px;
+		display: flex;
+		font-size: 14px;
+
+		color:white;
+
+		.good, .bad{
+			flex:1;
+			padding: 10px;
+		}
+		.ratingWrapper{
+			width: 90%;
+			font-weight: bold;
+			font-size: 13px;
+			padding-top: 8px;
+			margin: 0 auto;	
+		}
+		.ratingBar{
+			display: flex;
+			margin-top: 2px;			
+			.block{
+				flex:1;
+				height: 25px;
+				&.red{background: #e74c3c;}
+				&.blue{background: #96f193;}
+				&.green{background: #2ecc71;}
+			}
+		}
+	}
+
+	.opoxScore{
+		color:lightgreen;
+		font-size: 20px;
+	}
+	&.mini{
+		padding-top: 5px;
+		padding-bottom: 5px;
+		.name{
+			font-weight: normal;
+
+		}
+		.matches{
+			.ratingWrapper{
+				position: relative;
+				height: 15px;
+				.ratingBarDescription{
+					position: absolute;
+					left:5px;
+				}
+				.ratingBar{
+					margin-top: 0;			
+					.block{
+						height: 15px;
+					}
+				}
+			}
+	
+		}
+
+	}
 }

@@ -24,7 +24,7 @@ import { PersistGate } from 'redux-persist/lib/integration/react'
 
 import reducer from './app/reducers';
 //import AppContainer from './app/containers/AppContainer.js'
-import AppContainer from './app/containers/AppContainer.js'
+import AppContainer from './app/containers/AppContainer.jsx'
 
 var DEBUG=true;
 
@@ -46,6 +46,7 @@ function configureStore(initialState) {
 }
 
 const store = configureStore({});
+
 
 const React_starter = () => (
   <Provider store={store.store}>

@@ -1,3 +1,84 @@
 body {
-  background: #555;
+  background: #ddd;
+  padding: 0;
+  margin: 0;
+}
+#mainContainer {
+  padding-top: 100px;
+  max-width: 700px;
+  margin: 0 auto;
+}
+.matchResult {
+  background: #2970B6;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+.matchResult .name {
+  color: white;
+  font-weight: bold;
+}
+.matchResult .name .pullRight {
+  float: right;
+  display: inline-block;
+  font-weight: normal;
+}
+.matchResult .matches {
+  margin-top: 10px;
+  display: flex;
+  font-size: 14px;
+  color: white;
+}
+.matchResult .matches .good,
+.matchResult .matches .bad {
+  flex: 1;
+  padding: 10px;
+}
+.matchResult .matches .ratingWrapper {
+  width: 90%;
+  font-weight: bold;
+  font-size: 13px;
+  padding-top: 8px;
+  margin: 0 auto;
+}
+.matchResult .matches .ratingBar {
+  display: flex;
+  margin-top: 2px;
+}
+.matchResult .matches .ratingBar .block {
+  flex: 1;
+  height: 25px;
+}
+.matchResult .matches .ratingBar .block.red {
+  background: #e74c3c;
+}
+.matchResult .matches .ratingBar .block.blue {
+  background: #96f193;
+}
+.matchResult .matches .ratingBar .block.green {
+  background: #2ecc71;
+}
+.matchResult .opoxScore {
+  color: lightgreen;
+  font-size: 20px;
+}
+.matchResult.mini {
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+.matchResult.mini .name {
+  font-weight: normal;
+}
+.matchResult.mini .matches .ratingWrapper {
+  position: relative;
+  height: 15px;
+}
+.matchResult.mini .matches .ratingWrapper .ratingBarDescription {
+  position: absolute;
+  left: 5px;
+}
+.matchResult.mini .matches .ratingWrapper .ratingBar {
+  margin-top: 0;
+}
+.matchResult.mini .matches .ratingWrapper .ratingBar .block {
+  height: 15px;
 }
