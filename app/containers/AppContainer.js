@@ -5,35 +5,6 @@ import { bindActionCreators } from 'redux';
 
 
 import InputField from '../components/inputField.js';
-import MatchResult from '../components/MatchResult.jsx';
-var matches = [
-  {
-  	name:"Angelika Krause", score:76,
-	best:[
-		{name:'C#', has:5, needs:5},
-		{name:'Javascript', has:5, needs:4},
-		{name:'COBOL', has:4, needs:5},
-	],
-	worst:[
-		{name:'MySQL', has:0, needs:5},
-		{name:'PHP', has:1, needs:5},
-		{name:'Nodejs', has:0, needs:4},
-	]
-  },
-  {
-  	name:"Peter Liesel", score:73,
-	best:[
-		{name:'Nodejs', has:5, needs:5},
-		{name:'C#', has:4, needs:5},
-		{name:'COBOL', has:4, needs:5},
-	],
-	worst:[
-		{name:'MySQL', has:0, needs:5},
-		{name:'Nodejs', has:0, needs:3},
-		{name:'PHP', has:1, needs:5},
-	]
-  }
-];
 
 
 class AppContainer extends Component<{}> {
@@ -61,13 +32,14 @@ class AppContainer extends Component<{}> {
 	}
 	render(){
 		//We can access the redux store via our props. The available variables are defined in mapStateToProps() in this file
-		return (<div id="mainContainer">
-				{matches.map(m=>{
-					return <MatchResult data={m}/>
-				})}
-				{matches.map(m=>{
-					return <MatchResult mini={true} data={m}/>
-				})}
+		return (<div>
+			Current Redux Store Username: {this.props.user.username}
+			<br/>
+			Current local state.input: {this.state.input}
+			<br/>
+			<InputField value={this.state.input} onChange={(e)=>{this.changeInput(e.target.value)}}/>
+			<br/>
+			<button onClick={()=>{this.setUsername()}}>Set Username</button>
 			</div>);
 	}
 }
