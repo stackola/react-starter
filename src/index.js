@@ -52,7 +52,7 @@ const render = Component => {
 render(AppContainer);
 
 if (module.hot) {
-  module.hot.accept("./containers/AppContainer.js", () => {
+  module.hot.accept("./containers/AppContainer", () => {
     var NextRootContainer = require("./containers/AppContainer").default;
     render(NextRootContainer);
   });
