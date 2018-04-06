@@ -8,13 +8,13 @@ const CleanWebpackPlugin = require("clean-webpack-plugin");
 module.exports = env => {
   const extractLess = new ExtractTextPlugin({
     filename: "css/[name]-[hash].css",
-    disable: env.NODE_ENV === "local"
+    disable: env.NODE_ENV === "local" // Don't extract css files when serving though webpack-dev-server
   });
 
   const createHtml = new HtmlWebpackPlugin({
-    inject: "body",
+    inject: "body", // Inject script tags into the body instead of head
     template: __dirname + "/src/templates/index.ejs",
-    disable: env.NODE_ENV === "local"
+    disable: env.NODE_ENV === "local" // Don't create html file when serving though webpack-dev-server
   });
 
   const envPlugin = new webpack.EnvironmentPlugin({
@@ -23,15 +23,16 @@ module.exports = env => {
   });
 
   const cleanPlugin = new CleanWebpackPlugin(["public"], {
-    root: __dirname
+    root: __dirname,
+    dry: env.NODE_ENV === "local"  // Don't delete local files when serving through WDS
   });
-  
+
   return {
     mode: "development", // This gets overwritten by console argument
     entry: {
       app: ["babel-polyfill", "./src/index"]
     },
-    devtool: "source-map",
+    devtool: "source-map",  // enable sourcemap
     plugins: [cleanPlugin, envPlugin, extractLess, createHtml],
     module: {
       rules: [
