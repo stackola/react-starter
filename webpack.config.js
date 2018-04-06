@@ -1,4 +1,4 @@
-// TODO: Delete old js/css files 
+// TODO: Delete old js/css files
 
 const webpack = require("webpack");
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
@@ -52,6 +52,19 @@ module.exports = env => {
           })
         }
       ]
+    },
+    optimization:{
+        splitChunks:{
+            cacheGroups:{
+                vendor: {
+                    chunks: 'initial',
+                    test: __dirname + '/node_modules',
+                    filename: "js/vendors-[contentHash].js",
+                    name: 'vendors',
+                    enforce: true,
+                },
+            }, 
+        }
     },
     resolve: {
       extensions: ["*", ".js", ".jsx"]
