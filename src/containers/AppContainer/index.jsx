@@ -1,15 +1,20 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
-import { ActionCreators } from "../actions";
-import { bindActionCreators } from "redux";
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { ActionCreators } from 'actions';
+import { bindActionCreators } from 'redux';
+import CSSModules from 'react-css-modules';
 
-import InputField from "../components/inputField";
+import InputField from 'components/inputField';
+import style from './style.less';
 
+console.log('styles: ', style);
+
+@CSSModules(style)
 class AppContainer extends Component {
 	constructor(props) {
 		super(props);
 		//initialize local state
-		this.state = { input: " " };
+		this.state = { input: '' };
 	}
 	componentDidMount() {}
 
@@ -24,12 +29,12 @@ class AppContainer extends Component {
 		//this.props.setUserObject({username:input});
 		//check actions/user.js
 		//Clear input field
-		this.setState({ ...this.state, input: "" });
+		this.setState({ ...this.state, input: '' });
 	}
 	render() {
 		//We can access the redux store via our props. The available variables are defined in mapStateToProps() in this file
 		return (
-			<div>
+			<div styleName={'main'}>
 				Current Redux Store Username: {this.props.user.username}
 				<br />
 				Current local state.input: {this.state.input}

@@ -15,7 +15,6 @@ import reducer from "./reducers";
 //import AppContainer from './app/containers/AppContainer.js'
 import AppContainer from "./containers/AppContainer";
 
-import style from "./style.less";
 
 var DEBUG = true;
 
