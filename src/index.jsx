@@ -16,31 +16,29 @@ import reducer from "./reducers";
 import AppContainer from "./containers/AppContainer";
 
 
-var DEBUG = true;
-
 const persistConfig = {
   key: "v0",
   storage: storage
 };
 
 const loggerMiddleware = createLogger({
-  predicate: (getState, action) => DEBUG
+  predicate: (getState, action) => process.env.DEBUG
 });
 
-function configureStore(initialState) {
-  const enhancer = compose(applyMiddleware(thunkMiddleware, loggerMiddleware));
-  const persistedReducer = persistReducer(persistConfig, reducer);
+function configureStorage(initialState) {
+  let enhancer = compose(applyMiddleware(thunkMiddleware, loggerMiddleware));
+  let persistedReducer = persistReducer(persistConfig, reducer);
   let store = createStore(persistedReducer, initialState, enhancer);
   let persistor = persistStore(store);
-  return { store, persistor };
+  return [store, persistor];
 }
 
-const store = configureStore({});
+let [store, persistor] = configureStorage({});
 
 const render = Component => {
   ReactDOM.render(
-    <Provider store={store.store}>
-      <PersistGate loading={null} persistor={store.persistor}>
+    <Provider store={store}>
+      <PersistGate loading={null} persistor={persistor}>
         <Component />
       </PersistGate>
     </Provider>,
