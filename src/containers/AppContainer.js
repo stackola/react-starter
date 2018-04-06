@@ -4,7 +4,7 @@ import {ActionCreators} from '../actions';
 import { bindActionCreators } from 'redux';
 
 
-import InputField from '../components/inputField.js';
+import InputField from '../components/inputField';
 
 
 class AppContainer extends Component<{}> {
