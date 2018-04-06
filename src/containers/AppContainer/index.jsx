@@ -9,7 +9,8 @@ import style from './style.less';
 
 console.log('styles: ', style);
 
-@CSSModules(style)
+@connect(mapStateToProps, mapDispatchToProps)
+@CSSModules(style, {allowMultiple:true, handleNotFoundStyleName:'log'})
 class AppContainer extends Component {
 	constructor(props) {
 		super(props);
@@ -45,6 +46,12 @@ class AppContainer extends Component {
 						this.changeInput(e.target.value);
 					}}
 				/>
+				<InputField
+					value={this.state.input}
+					onChange={e => {
+						this.changeInput(e.target.value);
+					}}
+				/>
 				<br />
 				<button
 					onClick={() => {
@@ -71,4 +78,4 @@ function mapDispatchToProps(dispatch) {
 }
 
 //Connect to navigation, redux and export
-export default connect(mapStateToProps, mapDispatchToProps)(AppContainer);
+export default AppContainer;
