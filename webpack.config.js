@@ -3,6 +3,8 @@
 const webpack = require("webpack");
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const CleanWebpackPlugin = require("clean-webpack-plugin");
+
 module.exports = env => {
   const extractLess = new ExtractTextPlugin({
     filename: "css/[name]-[hash].css",
@@ -20,13 +22,17 @@ module.exports = env => {
     DEBUG: false
   });
 
+  const cleanPlugin = new CleanWebpackPlugin(["public"], {
+    root: __dirname
+  });
+  
   return {
     mode: "development", // This gets overwritten by console argument
     entry: {
       app: ["babel-polyfill", "./src/index"]
     },
     devtool: "source-map",
-    plugins: [envPlugin, extractLess, createHtml],
+    plugins: [cleanPlugin, envPlugin, extractLess, createHtml],
     module: {
       rules: [
         {
@@ -53,18 +59,18 @@ module.exports = env => {
         }
       ]
     },
-    optimization:{
-        splitChunks:{
-            cacheGroups:{
-                vendor: {
-                    chunks: 'initial',
-                    test: __dirname + '/node_modules',
-                    filename: "js/vendors-[contentHash].js",
-                    name: 'vendors',
-                    enforce: true,
-                },
-            }, 
+    optimization: {
+      splitChunks: {
+        cacheGroups: {
+          vendor: {
+            chunks: "initial",
+            test: __dirname + "/node_modules",
+            //filename: "js/vendors-[contentHash].js",
+            name: "vendors",
+            enforce: true
+          }
         }
+      }
     },
     resolve: {
       extensions: ["*", ".js", ".jsx"]
