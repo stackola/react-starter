@@ -1,28 +1,29 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 
-import ReactDOM from "react-dom";
+import ReactDOM from 'react-dom';
 
-import { Provider } from "react-redux";
-import { createStore, applyMiddleware, combineReducers, compose } from "redux";
-import thunkMiddleware from "redux-thunk";
-import { createLogger } from "redux-logger";
+import { Provider } from 'react-redux';
+import { createStore, applyMiddleware, combineReducers, compose } from 'redux';
+import thunkMiddleware from 'redux-thunk';
+import { createLogger } from 'redux-logger';
 
-import { persistStore, persistReducer } from "redux-persist";
-import storage from "redux-persist/lib/storage";
-import { PersistGate } from "redux-persist/lib/integration/react";
+import { persistStore, persistReducer } from 'redux-persist';
+import storage from 'redux-persist/lib/storage';
+import { PersistGate } from 'redux-persist/lib/integration/react';
 
-import reducer from "./reducers";
+import reducer from './reducers';
 //import AppContainer from './app/containers/AppContainer.js'
-import AppContainer from "./containers/AppContainer";
+import AppContainer from './containers/AppContainer';
 
+import { HashRouter as Router } from 'react-router-dom';
 
 const persistConfig = {
-  key: "v0",
-  storage: storage
+  key: 'v0',
+  storage: storage,
 };
 
 const loggerMiddleware = createLogger({
-  predicate: (getState, action) => process.env.DEBUG
+  predicate: (getState, action) => process.env.DEBUG,
 });
 
 function configureStorage(initialState) {
@@ -39,18 +40,20 @@ const render = Component => {
   ReactDOM.render(
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
-        <Component />
+        <Router>
+          <Component />
+        </Router>
       </PersistGate>
     </Provider>,
-    document.getElementById("app")
+    document.getElementById('app')
   );
 };
 
 render(AppContainer);
 
 if (module.hot) {
-  module.hot.accept("./containers/AppContainer", () => {
-    var NextRootContainer = require("./containers/AppContainer").default;
+  module.hot.accept('./containers/AppContainer', () => {
+    var NextRootContainer = require('./containers/AppContainer').default;
     render(NextRootContainer);
   });
 }

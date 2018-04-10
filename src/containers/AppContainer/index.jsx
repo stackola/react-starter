@@ -7,10 +7,37 @@ import CSSModules from 'react-css-modules';
 import InputField from 'components/inputField';
 import style from './style.less';
 
-console.log('styles: ', style);
+import {
+	Route,
+	Link,
+	withRouter,
+	Switch,
+	Redirect
+} from 'react-router-dom';
 
+const Home = () => (
+	<div>
+		<h2>Home</h2>
+	</div>
+);
+const KING = () => (
+	<div>
+		<h2>KING</h2>
+	</div>
+);
+
+
+const About = (props) => (
+			<div>
+				<h2>About</h2>
+				<Link to={props.match.path + '/child'}><h2>Show child element</h2></Link>
+				<Route path={props.match.path + '/child'} component={KING} />
+			</div>
+		);
+
+@withRouter
 @connect(mapStateToProps, mapDispatchToProps)
-@CSSModules(style, {allowMultiple:true, handleNotFoundStyleName:'log'})
+@CSSModules(style, { allowMultiple: true, handleNotFoundStyleName: 'log' })
 class AppContainer extends Component {
 	constructor(props) {
 		super(props);
@@ -60,6 +87,27 @@ class AppContainer extends Component {
 				>
 					Set Username
 				</button>
+				<div>
+					<ul>
+						<li>
+							<Link to="/">Home</Link>
+						</li>
+						<li>
+							<Link to="/about">About</Link>
+						</li>
+						<li>
+							<Link to="/topics">Topics</Link>
+						</li>
+					</ul>
+				</div>
+				<div>
+					<Switch>
+						<Route exact path="/" component={Home} />
+						<Route path="/about" component={About} />
+						<Route path="/test" component={About} />
+						<Redirect to="/" />
+					</Switch>
+				</div>
 			</div>
 		);
 	}
@@ -68,7 +116,7 @@ class AppContainer extends Component {
 //Make state available as props
 function mapStateToProps(state) {
 	return {
-		user: state.user
+		user: state.user,
 	};
 }
 
