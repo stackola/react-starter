@@ -7,13 +7,7 @@ import CSSModules from 'react-css-modules';
 import InputField from 'components/inputField';
 import style from './style.less';
 
-import {
-	Route,
-	Link,
-	withRouter,
-	Switch,
-	Redirect
-} from 'react-router-dom';
+import { Route, Link, withRouter, Switch, Redirect } from 'react-router-dom';
 
 const Home = () => (
 	<div>
@@ -26,14 +20,15 @@ const KING = () => (
 	</div>
 );
 
-
-const About = (props) => (
-			<div>
-				<h2>About</h2>
-				<Link to={props.match.path + '/child'}><h2>Show child element</h2></Link>
-				<Route path={props.match.path + '/child'} component={KING} />
-			</div>
-		);
+const About = props => (
+	<div>
+		<h2>About</h2>
+		<Link to={props.match.path + '/child'}>
+			<h2>Show child element</h2>
+		</Link>
+		<Route path={props.match.path + '/child'} component={KING} />
+	</div>
+);
 
 @withRouter
 @connect(mapStateToProps, mapDispatchToProps)
