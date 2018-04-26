@@ -5,10 +5,25 @@ This is a minimal starting point for a react, redux, webpack, babel browser appl
 
 Install:
 
-* `$ git clone`
-* `$ npm install`
-* `$ npm run compile`
-* Open index.html in your browser
+* `git clone`
+* `npm install`
+* If you want to use yeoman code generator (do it.) 
+	* `npm i -g yo`
+	* `cd gen && npm install`
+
+Running:
+
+Serve locally, includes hot-reloading for js/less
+* `npm run serve`
+
+Create debug build (public/)
+* `npm run compile`
+* or `npm run build`
+
+Create production build
+* `npm run prod`
 
 
-Use `npm run prod` to create a production build
+Generating a component:
+
+`yo ./gen/component`
