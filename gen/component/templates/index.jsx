@@ -1,10 +1,3 @@
-import React from 'react';
-import CSSModules from 'react-css-modules';
-import style from './style.less';
+import <%= slug %> from './<%= slug %>';
 
-@CSSModules(style, {allowMultiple:true, handleNotFoundStyleName:'log'})
-export default class <%= name %> extends React.Component{
-	render(){
-		return (<div styleName="<%= slug %>"/>);
-	}
-}
+export default <%= slug %>;

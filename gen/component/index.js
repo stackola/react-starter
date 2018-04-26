@@ -39,8 +39,17 @@ module.exports = class extends Generator {
       }
     );
     this.fs.copyTpl(
+      this.templatePath('file.jsx'),
+      this.destinationPath('src/components/' + this.props.name + '/'+ this.props.name +'.jsx'),
+      {
+        name:
+          this.props.name.charAt(0).toUpperCase() + this.props.name.slice(1),
+        slug: this.props.name,
+      }
+    );
+    this.fs.copyTpl(
       this.templatePath('style.less'),
-      this.destinationPath('src/components/' + this.props.name + '/style.less'),
+      this.destinationPath('src/components/' + this.props.name + '/'+this.props.name+'.less'),
       {
         name:
           this.props.name.charAt(0).toUpperCase() + this.props.name.slice(1),
