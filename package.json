@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "serve": "./node_modules/.bin/webpack-dev-server --env.NODE_ENV=local --hot --history-api-fallback --open --content-base=public/",
+    "serve": "./node_modules/.bin/webpack-dev-server --env.NODE_ENV=local --hot --history-api-fallback --open --content-base=public/ --host 0.0.0.0",
     "build": "./node_modules/.bin/webpack -w -d --env.NODE_ENV=development",
     "compile": "npm run build",
     "prod": "./node_modules/.bin/webpack -p --env.NODE_ENV=production"
