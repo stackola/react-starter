@@ -63,7 +63,7 @@ module.exports = env => {
         cacheGroups: {
           vendor: {
             chunks: 'initial',
-            test: __dirname + '/node_modules',
+            test: /[\\/]node_modules[\\/]/,
             //filename: "js/vendors-[contentHash].js",
             name: 'vendors',
             enforce: true,
