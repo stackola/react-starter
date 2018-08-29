@@ -35,7 +35,7 @@ module.exports = env => {
   return {
     mode: "development", // This gets overwritten by console argument
     entry: {
-      app: ["babel-polyfill", "./src/index"]
+      app: ["@babel/polyfill", "./src/index"]
     },
     devtool: "source-map", // enable sourcemap
     plugins: [cleanPlugin, envPlugin, extractLess, createHtml],
