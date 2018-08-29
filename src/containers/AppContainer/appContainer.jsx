@@ -5,7 +5,7 @@ import { bindActionCreators } from 'redux';
 import CSSModules from 'react-css-modules';
 
 import InputField from 'components/inputField';
-import style from './style.less';
+import style from './appContainer.less';
 
 import { Route, Link, withRouter, Switch, Redirect } from 'react-router-dom';
 
@@ -85,7 +85,7 @@ class AppContainer extends Component {
 				<div>
 					<ul>
 						<li>
-							<Link to="/">Home</Link>
+							<Link to="/">Homes</Link>
 						</li>
 						<li>
 							<Link to="/about">About</Link>
