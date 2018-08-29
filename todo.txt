@@ -1,4 +1,0 @@
-Add i18n
-Refine style
-Favicons?
-Inline some images?
