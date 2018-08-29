@@ -58,6 +58,13 @@ module.exports = env => {
             ],
             fallback: "style-loader"
           })
+        },
+        {
+          test: /\.css$/,
+          loader: ExtractTextPlugin.extract({
+            use: ["css-loader"],
+            fallback: "style-loader"
+          })
         }
       ]
     },
