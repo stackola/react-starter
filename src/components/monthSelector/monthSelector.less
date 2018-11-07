@@ -1,0 +1,48 @@
+.monthSelector{
+	display: flex;
+	flex: 1;
+	flex-wrap:wrap;
+}
+
+.month{
+	width: calc( 100% / 6);
+	margin-bottom: 12px;
+}
+.circle{
+	width: 34px;
+	height: 34px;
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+	-ms-align-items: center;
+	align-items: center;
+	font-size: 60%;
+	font-weight: bold;
+	justify-content: center;
+	border-radius:50%;
+	background: white;
+	border:1px solid #a7a7a7;
+	color: #a7a7a7;
+	
+}
+
+.month.selected{
+	.circle{
+	color:white;
+	border:1px solid #218aff;
+	background: #219aff;
+		
+	}
+}
+
+.clearButton{
+	font-size: 80%;
+	color:#a7a7a7;
+	cursor: pointer;	
+	&:hover{
+
+	text-decoration: underline;
+	}
+}
