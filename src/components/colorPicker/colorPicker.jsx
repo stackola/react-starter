@@ -36,12 +36,12 @@ export default class ColorPicker extends React.Component {
 			"#2bde6d",
 			"#d2de2b",
 			"#b8d18e",
-			"#81682d",
+			"#b7b7b7",
 			"#212121",
-			"#b7b7b7"
+			"#fff",
 		];
 		return (
-			<div styleName="colorPicker">
+			<div styleName={"colorPicker "+(this.props.condensed?"condensed ":' ')}>
 				<div styleName="colors">
 					{colors.map(c => {
 						return (
@@ -55,8 +55,8 @@ export default class ColorPicker extends React.Component {
 						);
 					})}
 				</div>
-				<div>
-				HEX <input type="text" onChange={(e)=>this.onChange(e.target.value)} styleName="hex" value={this.state.input}/>
+				<div styleName="hexContainer">
+				<span styleName="hexLabel">HEX</span> <input type="text" onChange={(e)=>this.onChange(e.target.value)} styleName="hex" value={this.state.input}/>
 				</div>
 			</div>
 		);

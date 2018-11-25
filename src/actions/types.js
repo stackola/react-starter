@@ -22,3 +22,15 @@ export const SET_COLOR = "SET_COLOR";
 
 export const SET_INPUTS = "SET_INPUTS";
 
+export const SET_FONT = "SET_FONT";
+export const SET_TEXT = "SET_TEXT";
+export const SET_TEXT_SIZE = "SET_TEXT_SIZE";
+export const SET_TEXT_POSITION = "SET_TEXT_POSITION";
+export const SET_TEXT_COLOR = "SET_TEXT_COLOR";
+
+
+export const SET_IMAGE_URL = "SET_IMAGE_URL";
+export const SET_IMAGE_SIZE = "SET_IMAGE_SIZE";
+export const SET_IMAGE_POSITION = "SET_IMAGE_POSITION";
+export const SET_RENDER = "SET_RENDER";
+

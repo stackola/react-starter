@@ -24,17 +24,18 @@ h1{
 .left{
 	flex:1;	
 	overflow-y: auto;
+	padding-bottom: 30px;
 	h1{
 		text-align: center;
 	}
 }
 .right{
 	flex:0.5;
-	min-width: 250px;
-	max-width: 400px;
 	overflow-x: hidden;
 	overflow-y: auto;
-	margin-right: 20px;
+	padding-right: 40px;
+	padding-left: 20px;
+	padding-bottom: 30px;
 }
 
 .buttons{
@@ -72,4 +73,37 @@ h1{
 			cursor: default;
 		}
 	}
+}
+
+.formError{
+	background: #b51818;
+	color:white;
+	padding: 4px;
+	border-radius: 4px;
+	margin-bottom: 16px;
+}
+
+.thankYou{
+	background: white;
+	font-size: 85%;
+}
+
+@media only screen and (max-width: 800px) {
+    .split{
+		display: block;
+		height: auto;
+		margin-bottom: 30px;
+		.right{
+			margin: 0 auto;
+		}
+	}
+	.wrapper{
+		margin-bottom: 30px;
+		height: auto;
+	}
+}
+
+.pdfDownload{
+	font-size: 120%;
+	margin-top: 20px;
 }

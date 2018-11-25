@@ -13,7 +13,7 @@ var months = {
 	9: "September",
 	10: "October",
 	11: "November",
-	12: "Becember"
+	12: "December"
 };
 @CSSModules(style, { allowMultiple: true, handleNotFoundStyleName: "log" })
 export default class Summary extends React.Component {
@@ -24,6 +24,9 @@ export default class Summary extends React.Component {
 		//365
 		let start = this.props.build.startMonth;
 		let end = this.props.build.endMonth;
+		if (start==end){
+			return 1;
+		}
 		if (start && end) {
 			if (start < end) {
 				return end - start + 1;
@@ -57,7 +60,7 @@ export default class Summary extends React.Component {
 			if (start < end) {
 				return months[end] + " " + (y + 1);
 			} else {
-				return months[end] + " " + (y + 1);
+				return months[end] + " " + (y + 2);
 			}
 		} else {
 			if (start > end) {
@@ -68,6 +71,7 @@ export default class Summary extends React.Component {
 		}
 	}
 	render() {
+		let selectedAddons=this.props.options.addons.filter((a)=>{return this.props.build.addons[a.id]==true});
 		return (
 			<div styleName="summary">
 				<div styleName="row">
@@ -100,14 +104,16 @@ export default class Summary extends React.Component {
 						</div>
 					</div>
 				</div>
+				{selectedAddons && selectedAddons.length > 0 &&
 				<div styleName="row">
 					<div styleName="key">Addons</div>
 					<div styleName="value">
-						{this.props.options.addons.filter((a)=>{return this.props.build.addons[a.id]==true}).map((a)=>{
+						{selectedAddons.map((a)=>{
 							return <div>{a.name}</div>
 						})}
 					</div>
 				</div>
+				}
 			</div>
 		);
 	}

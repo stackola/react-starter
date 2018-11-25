@@ -14,7 +14,7 @@ import { HashRouter as Router } from 'react-router-dom';
 
 
 const loggerMiddleware = createLogger({
-  predicate: (getState, action) => true
+  predicate: (getState, action) => false
 });
 
 function configureStorage(initialState) {

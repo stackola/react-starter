@@ -32,7 +32,7 @@ export default class CityDropdown extends React.Component {
 							this.toggle();
 						}}
 					>
-						Choose City
+						Stadt wählen
 						<div styleName="downArrow">
 							<FA name="sort-down" />
 						</div>

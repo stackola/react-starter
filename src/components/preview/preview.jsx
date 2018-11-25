@@ -1,12 +1,16 @@
-import React from 'react';
-import CSSModules from 'react-css-modules';
-import style from './preview.less';
+import React from "react";
+import html2canvas from "html2canvas";
+import CSSModules from "react-css-modules";
+import style from "./preview.less";
 
-@CSSModules(style, {allowMultiple:true, handleNotFoundStyleName:'log'})
-export default class Preview extends React.Component{
-	constructor(p){
+import TextComponent from "components/textComponent";
+import ImageComponent from "components/imageComponent";
+
+@CSSModules(style, { allowMultiple: true, handleNotFoundStyleName: "log" })
+export default class Preview extends React.Component {
+	constructor(p) {
 		super(p);
-		this.state={ containerWidth: 500, loading: false };
+		this.state = { containerWidth: 500, loading: false };
 	}
 	componentDidMount() {
 		this.updateDimensions();
@@ -20,27 +24,40 @@ export default class Preview extends React.Component{
 		window.addEventListener("resize", () => {
 			this.updateDimensions();
 		});
+		if (this.props.render){
+			html2canvas(this.ref).then(canvas => {
+				this.props.onRender(canvas.toDataURL());
+			});
+		}
 	}
 
 	updateDimensions() {
 		if (this.wrapperRef) {
-			this.setState({
-				...this.state,
-				containerWidth: this.wrapperRef.offsetWidth
-			},()=>{console.log("width set to ", this.state.containerWidth)});
-		
+			this.setState(
+				{
+					...this.state,
+					containerWidth: this.wrapperRef.offsetWidth
+				},
+				() => {
+					//console.log("width set to ", this.state.containerWidth);
+				}
+			);
+		}
 	}
-	}
-	render(){
+	render() {
 		let image = this.props.image;
 		let crop = this.props.image.crop;
-		return (<div styleName="preview">
+		return (
+			<div
+				styleName="preview"
+				
+			>
 				<div
 					styleName="imgWrapper"
 					ref={ref => {
-						this.wrapperRef = ref;
+						this.ref = ref;
 					}}
-					style={{ background: this.props.build.color||'#fff'}}
+					style={{ background: this.props.build.color || "#004a99" }}
 				>
 					<img styleName="nbEditorImage" src={this.props.image.url} />
 					<div
@@ -52,13 +69,17 @@ export default class Preview extends React.Component{
 							height: crop.height + "%"
 						}}
 					>
-					
+						<ImageComponent data={this.props.build.image} />
+						<TextComponent
+							containerWidth={this.state.containerWidth}
+							text={this.props.build.text}
+						/>
 					</div>
 				</div>
-			</div>);
+			</div>
+		);
 	}
 }
-
 
 /*
 

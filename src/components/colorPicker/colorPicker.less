@@ -3,6 +3,9 @@
 	flex-direction: column;
 	flex: 1;
 	margin-top: 12px;
+	&.condensed{
+		margin-top: 8px;
+	}
 }
 .colors {
 	display: -webkit-flex;
@@ -23,7 +26,7 @@
 }
 
 .hex {
-	width: 72px;
+	width: 110px!important;
 	margin-left: 12px;
 	border: 1px solid #a7a7a7;
 	border-radius: 5px;
@@ -31,5 +34,22 @@
 	padding-left: 4px;
 	padding-right: 4px;
 	text-align: center;
+	display: inline-block!important;
 	color:#777;
+}
+.hexLabel{
+	font-size: 85%;
+	color:#3e3e3e;
+}
+&.condensed{
+
+	.color{
+		width: 20px;
+		margin-right: 8px;
+		margin-bottom: 8px;
+		height: 20px;
+	}
+	.hexContainer{
+		display: none;
+	}
 }

@@ -49,3 +49,66 @@ export function setInputs(inputs) {
 	}
 }
 
+export function setFont(font) {
+	return {
+		type: types.SET_FONT,
+		payload: font
+	}
+}
+
+export function setText(text) {
+	return {
+		type: types.SET_TEXT,
+		payload: text
+	}
+}
+export function setRender(render) {
+	return {
+		type: types.SET_RENDER,
+		payload: render
+	}
+}
+
+export function setTextSize(size) {
+	return {
+		type: types.SET_TEXT_SIZE,
+		payload: size
+	}
+}
+
+export function setTextPosition(position) {
+	return {
+		type: types.SET_TEXT_POSITION,
+		payload: position
+	}
+}
+
+export function setTextColor(color) {
+	return {
+		type: types.SET_TEXT_COLOR,
+		payload: color
+	}
+}
+
+
+export function setImageUrl(url) {
+	return {
+		type: types.SET_IMAGE_URL,
+		payload: url
+	}
+}
+
+export function setImageSize(size) {
+	return {
+		type: types.SET_IMAGE_SIZE,
+		payload: size
+	}
+}
+
+export function setImagePosition(pos) {
+	return {
+		type: types.SET_IMAGE_POSITION,
+		payload: pos
+	}
+}
+

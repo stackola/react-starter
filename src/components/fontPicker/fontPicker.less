@@ -1,0 +1,42 @@
+.fontPicker{
+	display: flex;
+	flex-direction: column;
+	flex: 1;
+	border: 1px solid #a7a7a7;
+	border-radius: 5px;
+}
+
+
+
+
+.selectableFont {
+	background: white;
+	padding: 0.3em 0.7em;
+	margin-bottom: 4px;
+	border-radius: 5px;
+	display: flex;
+	-ms-align-items: center;
+	cursor: pointer;
+	align-items: center;
+}
+.selectableFont.selected {
+	color: #218aff;
+}
+.selectableFont:hover {
+	background: #f7f7f7;
+	box-shadow: inset 0px 0px 0px 1px white;
+}
+.selectableFont.picked:hover {
+	background: white;
+}
+.selectableFont:last-child {
+	margin-bottom: 0;
+}
+
+.previewFont {
+	display: flex;
+	width: 100%;
+}
+.previewSelectionText {
+	flex: 1;
+}

@@ -9,7 +9,7 @@ const path = require("path");
 
 module.exports = env => {
   const extractLess = new ExtractTextPlugin({
-    filename: "css/[name]-[hash].css",
+    filename: "style.css",
     disable: env.NODE_ENV === "local" // Don't extract css files when serving though webpack-dev-server
   });
 
@@ -68,19 +68,7 @@ module.exports = env => {
         }
       ]
     },
-    optimization: {
-      splitChunks: {
-        cacheGroups: {
-          vendor: {
-            chunks: "initial",
-            test: /[\\/]node_modules[\\/]/,
-            //filename: "js/vendors-[contentHash].js",
-            name: "vendors",
-            enforce: true
-          }
-        }
-      }
-    },
+   
     resolve: {
       extensions: ["*", ".js", ".jsx"],
       modules: [path.resolve(__dirname, "src"), "node_modules"]
@@ -88,7 +76,7 @@ module.exports = env => {
     output: {
       path: __dirname + "/public/",
       publicPath: "",
-      filename: "js/main-[hash].js"
+      filename: "bundle.js"
     }
   };
 };

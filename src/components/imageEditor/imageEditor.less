@@ -1,0 +1,50 @@
+.imageEditor{
+	flex: 1;
+	margin-top: 8px;
+}
+
+.uploadButton{
+	color:#218aff;
+	margin-bottom: 8px;
+	padding-top: 4px;
+	padding-bottom: 4px;
+	cursor: pointer;
+	display: inline-block;
+	vertical-align: top;
+}
+
+
+.inputWrapper{
+	display: flex;
+}
+
+.controlContainer{
+	padding-top: 4px;
+	padding-bottom: 4px;
+	padding-top: 8px;
+	display: flex;
+	&.slider{
+		padding-right: 8px;
+		-ms-align-items: center;
+		align-items: center;
+	}
+}
+.label{
+	font-size: 100%;
+	margin-right: 20px;
+	font-size: 80%;
+	width: 40px;
+    color: #3e3e3e;
+}
+.removePicture{
+	color:red;
+	display: flex;
+	-ms-align-items: center;
+	align-items: center;
+	cursor: pointer;
+	:global{
+		.fa{
+			padding-left: 10px;
+		}
+	}
+}

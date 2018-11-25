@@ -22,18 +22,24 @@ class OptionsEditor extends React.Component {
 		return (
 			<div styleName="optionsEditor">
 				<div styleName="optionRow">
-					<div styleName="optionTitle">How many bikes?</div>
+					<div styleName="optionTitle">Wie viele Räder?</div>
 					<div styleName="optionText">
-						Base price - {s.options.basePrice}€ per bike per month.
+					{this.props.is365&&
+						<span>Basis Preis - {s.options.basePrice}€ pro Rad pro Jahr.</span>
+					}
+					{!this.props.is365&&
+						<span>Basis Preis - {s.options.basePrice}€ pro Rad pro Monat.</span>
+					}
+					
 					</div>
 					<div styleName="slider">
 						<div styleName="sliderWrapper">
 							<Slider
-								min={s.options.orderVolume.min}
-								max={s.options.orderVolume.max}
-								value={b.volume}
+								min={parseInt(s.options.orderVolume.min)}
+								max={parseInt(s.options.orderVolume.max)}
+								value={parseInt(b.volume)}
 								onChange={v => {
-									this.props.setVolume(v);
+									this.props.setVolume(parseInt(v));
 								}}
 								marks={{
 									[s.options.orderVolume.min]:
@@ -76,20 +82,29 @@ class OptionsEditor extends React.Component {
 					);
 				})}
 				<div styleName="optionRow">
-					<div styleName="optionTitle">Booking period</div>
+					<div styleName="optionTitle">Buchungszeitraum</div>
 					<div styleName="optionText">
-						Select when your campaign will start and end
+						
+						{this.props.is365&&
+							<span>Wählen Sie, wann ihre Kampagne laufen soll.</span>
+						}
+						{!this.props.is365&&
+							<span>Wählen Sie, wann ihre Kampagne laufen soll.</span>
+						}
 					</div>
 					<div styleName="monthSelector">
 						<MonthSelector
 							setStartMonth={i => {
 								this.props.setStartMonth(i);
 							}}
+							is365={this.props.is365}
 							startMonth={this.props.build.startMonth}
 							setEndMonth={i => {
 								this.props.setEndMonth(i);
 							}}
 							endMonth={this.props.build.endMonth}
+							min={parseInt(s.options.orderTime.min)}
+							max={parseInt(s.options.orderTime.max)}
 						/>
 					</div>
 				</div>
