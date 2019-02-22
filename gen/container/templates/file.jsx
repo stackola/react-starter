@@ -1,5 +1,4 @@
 import React from 'react';
-import CSSModules from 'react-css-modules';
 import style from './<%= slug %>.less';
 
 import { connect } from 'react-redux';
@@ -7,7 +6,6 @@ import { ActionCreators } from 'actions';
 import { bindActionCreators } from 'redux';
 
 @connect(mapStateToProps, mapDispatchToProps)
-@CSSModules(style, {allowMultiple:true, handleNotFoundStyleName:'ignore'})
 class <%= name %> extends React.Component{
 	render(){
 		return (<div styleName="<%= slug %>"><%= name %></div>);

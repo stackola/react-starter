@@ -1,5 +1,20 @@
 {
-  "presets" : ["@babel/env", "@babel/react"],
-  "plugins": ["@babel/plugin-proposal-object-rest-spread", "@babel/plugin-transform-destructuring", ["@babel/plugin-proposal-decorators", { "legacy": true }],
-    ["@babel/plugin-proposal-class-properties", { "loose" : true }]]
+  "presets": ["@babel/env", "@babel/react"],
+  "plugins": [
+    "@babel/plugin-proposal-object-rest-spread",
+    "@babel/plugin-transform-destructuring",
+    ["@babel/plugin-proposal-decorators", { "legacy": true }],
+    ["@babel/plugin-proposal-class-properties", { "loose": true }],
+    [
+      "react-css-modules",
+      {"generateScopedName": "[local]__[hash:base64:5]",
+
+        "filetypes": {
+          ".less": {
+            "syntax": "postcss-less"
+          }
+        }
+      }
+    ]
+  ]
 }

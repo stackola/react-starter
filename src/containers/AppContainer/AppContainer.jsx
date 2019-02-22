@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { ActionCreators } from 'actions';
 import { bindActionCreators } from 'redux';
-import CSSModules from 'react-css-modules';
 
 import InputField from 'components/InputField';
 import style from './AppContainer.less';
@@ -32,7 +31,6 @@ const About = props => (
 
 @withRouter
 @connect(mapStateToProps, mapDispatchToProps)
-@CSSModules(style, { allowMultiple: true, handleNotFoundStyleName: 'log' })
 class AppContainer extends Component {
 	constructor(props) {
 		super(props);
