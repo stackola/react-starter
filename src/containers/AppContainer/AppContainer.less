@@ -1,3 +1,23 @@
-.main{
-	background: red;
+:global {
+  html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+  }
+  body {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    flex: 1;
+  }
+  #app {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+  }
+}
+.main {
+  background: red;
+  flex: 1;
 }
