@@ -16,7 +16,7 @@ module.exports = class extends Generator {
       {
         type: 'input',
         name: 'name',
-        message: 'componentName',
+        message: 'ComponentName',
       },
     ];
 
