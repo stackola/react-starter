@@ -4,7 +4,7 @@ import { ActionCreators } from 'actions';
 import { bindActionCreators } from 'redux';
 import CSSModules from 'react-css-modules';
 
-import InputField from 'components/inputField';
+import InputField from 'components/InputField';
 import style from './AppContainer.less';
 
 import { Route, Link, withRouter, Switch, Redirect } from 'react-router-dom';
