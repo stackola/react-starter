@@ -87,7 +87,7 @@ module.exports = env => {
     },
     output: {
       path: __dirname + "/public/",
-      publicPath: "",
+      publicPath: "/",
       filename: "js/main-[hash].js"
     }
   };

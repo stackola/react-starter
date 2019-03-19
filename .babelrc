@@ -7,8 +7,10 @@
     ["@babel/plugin-proposal-class-properties", { "loose": true }],
     [
       "react-css-modules",
-      {"generateScopedName": "[local]__[hash:base64:5]",
-
+      {
+        "generateScopedName": "[local]__[hash:base64:5]",
+        "autoResolveMultipleImports": true,
+        "handleMissingStyleName": "warn",
         "filetypes": {
           ".less": {
             "syntax": "postcss-less"
