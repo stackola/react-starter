@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { ActionCreators } from 'actions';
+import { ActionCreators } from 'redux/actions';
 import { bindActionCreators } from 'redux';
 
 import InputField from 'components/InputField';
@@ -22,7 +22,7 @@ class AppContainer extends Component {
 	render() {
 		return (
 			<div styleName={'main'}>
-				Hi
+				Hi!
 			</div>
 		);
 	}
