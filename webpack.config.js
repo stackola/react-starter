@@ -24,13 +24,15 @@ module.exports = env => {
     DEBUG: false
   });
 
-  const cleanPlugin = new CleanWebpackPlugin(
-    ["public/index.html", "public/css", "public/js"],
-    {
-      root: __dirname,
-      dry: env.NODE_ENV === "local" // Don't delete local files when serving through WDS
-    }
-  );
+  const cleanPlugin = new CleanWebpackPlugin({
+    cleanOnceBeforeBuildPatterns: [
+      "docs/index.html",
+      "docs/css",
+      "docs/js"
+    ],
+    root: __dirname,
+    dry: env.NODE_ENV === "local" // Don't delete local files when serving through WDS
+  });
 
   return {
     mode: "development", // This gets overwritten by console argument
@@ -53,7 +55,7 @@ module.exports = env => {
           loader: ExtractTextPlugin.extract({
             fallback: "style-loader",
             use: [
-              "css-loader?modules&importLoaders=1&localIdentName=[local]__[hash:base64:5]",
+              "css-loader?modules&importLoaders=true&localIdentName=[local]__[hash:base64:5]",
               "less-loader?sourceMap"
             ],
             fallback: "style-loader"
@@ -86,8 +88,8 @@ module.exports = env => {
       modules: [path.resolve(__dirname, "src"), "node_modules"]
     },
     output: {
-      path: __dirname + "/public/",
-      publicPath: "",
+      path: __dirname + "/docs/",
+      publicPath: "/",
       filename: "js/main-[hash].js"
     }
   };
