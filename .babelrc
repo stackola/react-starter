@@ -8,7 +8,7 @@
     [
       "react-css-modules",
       {"generateScopedName": "[local]__[hash:base64:5]",
-
+        "handleMissingStyleName":"warn",
         "filetypes": {
           ".less": {
             "syntax": "postcss-less"
