@@ -2,7 +2,7 @@ import React from 'react';
 import style from './<%= slug %>.less';
 
 import { connect } from 'react-redux';
-import { ActionCreators } from 'actions';
+import { ActionCreators } from 'redux/actions';
 import { bindActionCreators } from 'redux';
 
 @connect(mapStateToProps, mapDispatchToProps)
