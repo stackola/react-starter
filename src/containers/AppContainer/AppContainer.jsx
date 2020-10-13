@@ -1,41 +1,17 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { ActionCreators } from 'redux/actions';
-import { bindActionCreators } from 'redux';
+import React from "react";
+import "./AppContainer.less";
+import "./Global.less";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import Home from "../../screens/Home";
 
-import InputField from 'components/InputField';
-import style from './AppContainer.less';
-
-import { Route, Link, withRouter, Switch, Redirect } from 'react-router-dom';
-
-
-@withRouter
-@connect(mapStateToProps, mapDispatchToProps)
-class AppContainer extends Component {
-	constructor(props) {
-		super(props);
-		this.state = {  };
-	}
-	componentDidMount() {}
-
-	
-	render() {
-		return (
-			<div styleName={'main'}>
-				Hi!
-			</div>
-		);
-	}
+export default class AppContainer extends React.Component {
+  render() {
+    return (
+      <Router>
+        <Switch>
+          <Route path="/" component={Home}></Route>
+        </Switch>
+      </Router>
+    );
+  }
 }
-
-function mapStateToProps(state) {
-	return {
-		user: state.user,
-	};
-}
-
-function mapDispatchToProps(dispatch) {
-	return bindActionCreators(ActionCreators, dispatch);
-}
-
-export default AppContainer;
